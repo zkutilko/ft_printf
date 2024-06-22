@@ -18,7 +18,7 @@ ${NAME}: ${OBJ}
 	${LIBR} ${NAME}
 
 .c.o:
-	cc ${CFLAGS} -c $< -o ${<:.c=.o} -I ${INC}
+	cc ${CFLAGS} -c $< -o ${<:.c=.o} -I .
 
 bonus: ${OBJ_BONUS}
 	${LIBC} ${NAME} ${OBJ_BONUS}
