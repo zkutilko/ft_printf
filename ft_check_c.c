@@ -6,14 +6,14 @@
 /*   By: zkutilko <zkutilko@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 19:31:09 by zkutilko          #+#    #+#             */
-/*   Updated: 2024/06/19 20:10:03 by zkutilko         ###   ########.fr       */
+/*   Updated: 2024/06/23 19:36:46 by zkutilko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_check_c(va_list *args)
+int	ft_case_c(va_list *args)
 {
 	ft_putchar_fd(va_arg(*args, int), 1);
-	return(1);
+	return (1);
 }

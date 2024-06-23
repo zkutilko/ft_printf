@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_check_d.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zkutilko <zkutilko@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/13 19:09:21 by zkutilko          #+#    #+#             */
-/*   Updated: 2024/06/23 19:47:06 by zkutilko         ###   ########.fr       */
+/*   Created: 2024/06/23 19:41:50 by zkutilko          #+#    #+#             */
+/*   Updated: 2024/06/23 20:04:17 by zkutilko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include <unistd.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include "./libft/libft.h"
-# include <stdarg.h>
+int	ft_check_d(va_list *args)
+{
+	char	*num;
+	int	len;
 
-int	ft_printf(const char *format, ...);
-int	ft_check_param(va_list *args, char c, int count);
-int	ft_case_c(va_list *args);
-int	ft_check_s(va_list *args);
-int	ft_check_d(va_list *args);
-
-#endif
+	num = ft_itoa(va_arg(*args, int));
+	ft_putstr_fd(num, 1);
+	len = ft_strlen(num);
+	free(num);
+	return(len);
+}
