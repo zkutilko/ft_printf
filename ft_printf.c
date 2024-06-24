@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zkutilko <zkutilko@student.42prague.com    +#+  +:+       +#+        */
+/*   By: zkutilko <zkutilko@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 19:46:16 by zkutilko          #+#    #+#             */
-/*   Updated: 2024/06/23 19:55:39 by zkutilko         ###   ########.fr       */
+/*   Updated: 2024/06/24 17:15:28 by zkutilko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,19 @@
 int	ft_check_param(va_list *args, char c, int count)
 {
 	if (c == 'c')
-		count += ft_case_c(args);
+		count += ft_check_c(args);
 	else if (c == 's')
 		count = count + ft_check_s(args);
 	else if (c == 'd' || c == 'i')
 		count = count + ft_check_d(args);
+	else if (c == 'u')
+		count += ft_check_u(args);
+	else if (c == '%')
+		count += ft_check_per();
+	// else if (c == 'p')
+	// 	count += ft_check_p(args);
+	// else if (c == 'x')
+	// 	count += ft_check_x(args);
 	return (count);
 }
 int	ft_printf(const char *format, ...)

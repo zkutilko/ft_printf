@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zkutilko <zkutilko@student.42prague.com    +#+  +:+       +#+        */
+/*   By: zkutilko <zkutilko@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 19:09:21 by zkutilko          #+#    #+#             */
-/*   Updated: 2024/06/23 19:47:06 by zkutilko         ###   ########.fr       */
+/*   Updated: 2024/06/24 16:54:01 by zkutilko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,13 @@
 
 int	ft_printf(const char *format, ...);
 int	ft_check_param(va_list *args, char c, int count);
-int	ft_case_c(va_list *args);
+int	ft_check_c(va_list *args);
 int	ft_check_s(va_list *args);
 int	ft_check_d(va_list *args);
+char	*ft_unsigned_itoa(unsigned int n);
+int	ft_check_u(va_list *args);
+char	*ft_unsigned_itoah(unsigned int n);
+int	ft_check_x(va_list *args);
+int	ft_check_per(void);
 
 #endif
