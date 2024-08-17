@@ -3,25 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_u.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zkutilko <zkutilko@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zkutilko <zkutilko@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 15:14:45 by zkutilko          #+#    #+#             */
-/*   Updated: 2024/06/24 15:32:43 by zkutilko         ###   ########.fr       */
+/*   Updated: 2024/07/17 15:58:48 by zkutilko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	ft_fill(long int n, char *nb, int index)
+static void	ft_fill(unsigned int n, char *nb, unsigned int index)
 {
-	long int	x;
+	unsigned int	x;
 
-	if (n < 0)
-	{
-		x = -n;
-		nb[0] = '-';
-	}
-	else
 		x = n;
 	if (x >= 10)
 	{
@@ -38,8 +32,8 @@ static void	ft_fill(long int n, char *nb, int index)
 char	*ft_unsigned_itoa(unsigned int n)
 {
 	char		*ans;
-	long int	x;
-	int			i;
+	unsigned int	x;
+	unsigned int	i;
 
 	x = n;
 	i = 0;
@@ -47,11 +41,6 @@ char	*ft_unsigned_itoa(unsigned int n)
 	{
 		x /= 10;
 		i++;
-	}
-	if (n < 0)
-	{
-		i++;
-		x *= -n;
 	}
 	if (n == 0)
 		i = 1;

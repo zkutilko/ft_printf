@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zkutilko <zkutilko@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zkutilko <zkutilko@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 19:09:21 by zkutilko          #+#    #+#             */
-/*   Updated: 2024/06/24 16:54:01 by zkutilko         ###   ########.fr       */
+/*   Updated: 2024/07/17 17:49:38 by zkutilko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ char	*ft_unsigned_itoa(unsigned int n);
 int	ft_check_u(va_list *args);
 char	*ft_unsigned_itoah(unsigned int n);
 int	ft_check_x(va_list *args);
+int	ft_check_X(va_list *args);
 int	ft_check_per(void);
+int ft_printhexx(unsigned int n, const char format);
 
 #endif

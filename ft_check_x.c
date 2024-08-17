@@ -3,73 +3,83 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_x.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zkutilko <zkutilko@student.42.fr>          +#+  +:+       +#+        */
+/*   By: zkutilko <zkutilko@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 14:56:36 by zkutilko          #+#    #+#             */
-/*   Updated: 2024/06/24 16:12:15 by zkutilko         ###   ########.fr       */
+/*   Updated: 2024/07/17 17:52:03 by zkutilko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-static void	ft_fillh(long int n, char *nb, int index)
-{
-	long int	x;
+#include <stdio.h>
 
-	if (n < 0)
+static void puthex(unsigned int num, const char format)
+{
+	if (num >= 16)
 	{
-		x = -n;
-		nb[0] = '-';
+		puthex(num / 16, format);
+		puthex(num % 16, format);
 	}
 	else
-		x = n;
-	if (x >= 10)
 	{
-		ft_fillh(x / 16, nb, index - 1);
-		ft_fillh(x % 16, nb, index);
-	}
-	if (x < 16)
-	{
-		x += 48;
-		nb[index] = x;
+		if (num <= 9)
+			ft_putchar_fd(num + '0', 1);
+		else
+		{
+			if (format == 'x')
+				ft_putchar_fd(num - 10 + 'a', 1);
+			if (format == 'X')
+				ft_putchar_fd(num -10 + 'A', 1);
+		}
 	}
 }
 
-char	*ft_unsigned_itoah(unsigned int n)
+static int	hexlen(unsigned int n)
 {
-	char		*ans;
-	long int	x;
-	int			i;
+	int i;
 
-	x = n;
 	i = 0;
-	while (x != 0)
-	{
-		x /= 16;
-		i++;
-	}
-	if (n < 0)
+	while(n != 0)
 	{
 		i++;
-		x *= -n;
+		n = n / 16;
 	}
+	return (i);
+}
+
+int ft_printhex(unsigned int n, const char format)
+{
 	if (n == 0)
-		i = 1;
-	ans = malloc((i + 1) * sizeof(char));
-	if (!ans)
-		return (NULL);
-	ans[i] = '\0';
-	ft_fillh(n, ans, i - 1);
-	return (ans);
+		return (write (1, "0", 1));
+	else
+		puthex(n, format);
+	return (hexlen(n));
 }
 
 int	ft_check_x(va_list *args)
 {
-	char *num;
-	int len;
+	int	count;
 
-	num = ft_unsigned_itoah(va_arg(*args, int));
-	ft_putstr_fd(num, 1);
-	len = ft_strlen(num);
-	free(num);
-	return (len);
+	count = ft_printhex(va_arg(*args, unsigned int), 'x');
+	return (count);
 }
+
+int	ft_check_X(va_list *args)
+{
+	int	count;
+
+	count = ft_printhex(va_arg(*args, unsigned int), 'X');
+	return (count);
+}
+
+// int main()
+// {
+
+
+// 	int n;
+
+// 	n = 14;
+// 	ft_check_x(31);
+// 	printf("%x", n);
+// 	return (0);
+// }
