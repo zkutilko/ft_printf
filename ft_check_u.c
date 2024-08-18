@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_u.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zkutilko <zkutilko@student.42prague.com    +#+  +:+       +#+        */
+/*   By: zkutilko <zkutilko@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 15:14:45 by zkutilko          #+#    #+#             */
-/*   Updated: 2024/07/17 15:58:48 by zkutilko         ###   ########.fr       */
+/*   Updated: 2024/08/18 10:32:36 by zkutilko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static void	ft_fill(unsigned int n, char *nb, unsigned int index)
 {
 	unsigned int	x;
 
-		x = n;
+	x = n;
 	if (x >= 10)
 	{
 		ft_fill(x / 10, nb, index - 1);
@@ -31,7 +31,7 @@ static void	ft_fill(unsigned int n, char *nb, unsigned int index)
 
 char	*ft_unsigned_itoa(unsigned int n)
 {
-	char		*ans;
+	char			*ans;
 	unsigned int	x;
 	unsigned int	i;
 
@@ -54,8 +54,8 @@ char	*ft_unsigned_itoa(unsigned int n)
 
 int	ft_check_u(va_list *args)
 {
-	char *num;
-	int len;
+	char	*num;
+	int		len;
 
 	num = ft_unsigned_itoa(va_arg(*args, int));
 	ft_putstr_fd(num, 1);

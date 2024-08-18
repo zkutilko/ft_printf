@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_x.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zkutilko <zkutilko@student.42prague.com    +#+  +:+       +#+        */
+/*   By: zkutilko <zkutilko@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 14:56:36 by zkutilko          #+#    #+#             */
-/*   Updated: 2024/07/17 17:52:03 by zkutilko         ###   ########.fr       */
+/*   Updated: 2024/08/18 10:29:55 by zkutilko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
 
-static void puthex(unsigned int num, const char format)
+static void	puthex(unsigned int num, const char format)
 {
 	if (num >= 16)
 	{
@@ -36,10 +36,10 @@ static void puthex(unsigned int num, const char format)
 
 static int	hexlen(unsigned int n)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	while(n != 0)
+	while (n != 0)
 	{
 		i++;
 		n = n / 16;
@@ -47,7 +47,7 @@ static int	hexlen(unsigned int n)
 	return (i);
 }
 
-int ft_printhex(unsigned int n, const char format)
+int	ft_printhex(unsigned int n, const char format)
 {
 	if (n == 0)
 		return (write (1, "0", 1));
@@ -64,7 +64,7 @@ int	ft_check_x(va_list *args)
 	return (count);
 }
 
-int	ft_check_X(va_list *args)
+int	ft_check_xup(va_list *args)
 {
 	int	count;
 
@@ -74,12 +74,9 @@ int	ft_check_X(va_list *args)
 
 // int main()
 // {
-
-
 // 	int n;
-
 // 	n = 14;
 // 	ft_check_x(31);
-// 	printf("%x", n);
+// 	printf("%x", 31);
 // 	return (0);
 // }

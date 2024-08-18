@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zkutilko <zkutilko@student.42prague.com    +#+  +:+       +#+        */
+/*   By: zkutilko <zkutilko@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 19:46:16 by zkutilko          #+#    #+#             */
-/*   Updated: 2024/07/17 17:53:34 by zkutilko         ###   ########.fr       */
+/*   Updated: 2024/08/18 10:30:23 by zkutilko         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,15 @@ int	ft_check_param(va_list *args, char c, int count)
 		count += ft_check_u(args);
 	else if (c == '%')
 		count += ft_check_per();
-	// else if (c == 'p')
-	// 	count += ft_check_p(args);
+	else if (c == 'p')
+		count += ft_check_p(args);
 	else if (c == 'x')
 		count += ft_check_x(args);
 	else if (c == 'X')
-		count += ft_check_x(args);
+		count += ft_check_xup(args);
 	return (count);
 }
+
 int	ft_printf(const char *format, ...)
 {
 	va_list	args;
